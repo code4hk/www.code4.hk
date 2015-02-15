@@ -1,0 +1,21 @@
+{
+  "name": "code4hk",
+  "description": "www.code4.hk",
+  "version": "0.0.1",
+  "keywords": [
+    "shim",
+    "react"
+  ],
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "index.css"
+  ],
+  "dependencies": {
+    "components/modernizr": "*",
+    "necolas/normalize.css": "^3.0.2"
+  },
+  "locals": ["vendor/semantic"],
+  "paths": ["./", "../"]
+}
