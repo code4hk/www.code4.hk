@@ -1,37 +1,48 @@
-#home .welcome{
-background-image:url("http://hdwallpick.com/wp-content/uploads/2014/05/elegant-grey-illumination-background-presentations-powerpoint-backgrounds.jpg");
-min-height:10rem;
-padding:10rem;
+#home .welcome {
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  min-height:10rem;
+  padding:10rem;
 }
 
-.dashboard .metric{
+.dashboard {
+ color: #eeeeee;
+}
+
+.dashboard .metric {
   font-size:3rem;
+  font-weight: 700;
+}
+
+.dashboard .column.projects {
+  background-color:#50e3c2;
+}
+.dashboard .column.events {
+  background-color:#e43f4a;
+}
+.dashboard .column.collaboration {
+  background-color:#4a90e2;
+}
+
+.dashboard .column.members {
+  background-color:#9013fe;
 }
 
 
-.dashboard .column{
-  margin-left: -1em;
-  color:white;
-}
-.dashboard .column .fblikes{
-  background-color:red;
-}
-
-
-.header-logo{
+.header-logo {
   max-width:5rem;
 }
 
-.community-logo{
+.community-logo {
   max-width:20rem;
 }
 
-.code4hk-4{
-  color:red
+.code4hk-4 {
+  color:#de6061
 }
 
 #home .stripe {
- background-color: #FFFFFF;
+ background-color: #d8d8d8;
  padding: 10em 0px;
  border-radius: 0em;
  margin: 0em;
