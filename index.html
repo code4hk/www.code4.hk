@@ -10,6 +10,85 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="build/build.css">
 
+  <script src="./node_modules/react/dist/react.min.js"></script>
+  <script src="./node_modules/react/dist/JSXTransformer.js"></script>
+  <script src="./node_modules/react-intl/dist/react-intl.min.js"></script>
+
+<script type="text/jsx">
+var IntlMixin        = ReactIntl.IntlMixin;
+var FormattedMessage = ReactIntl.FormattedMessage;
+
+var intlDataZh = {
+    locales : ['zh-TW'],
+    messages: {
+      vision:{
+        community: {
+            heading: '社群',
+            description:'CODE4HK社群旨在聯合各界人仕透過程式設計和科技促進香港社會進步；著重每人都可參與及組織，發揮專長協作及推動不同的項目。成員間實踐理念並互相學習，活躍於Fb Group和Slack'
+        },
+        civichacking:{
+            heading:'公民開發',
+            description:'指引進軟體工業文化，運用開放數據及開放源碼，發揮民間力量解決身邊社區以至城市面對的問題；推廣香港「公民開發」，從而「用程式改變香港」'
+        },
+        opengov:{
+                    heading:'開放政府',
+                    description:'Eric Schmidt在《數位新時代》中寫道：「在世界舞台，通訊科技帶來最重要的影響是將權力重新從國家和現行體制分配到個人手上。」。科技能發揮參與式民主的極致，市民能用最有效的方法去表達政見、參與決策。我們務求把政府變成「開放軟體」，民間力量一同「除錯」，建構開放更透明的政府。'
+                }
+      }
+
+    }
+};
+
+var intlData = {
+    locales : ['en-US'],
+    messages: {
+      vision:{
+        community: {
+            heading: 'Community',
+            description:'We are a Civic Hacking Community. "Drive social changes by Code", we believe IT innovation is one of the few ways that can change Hong Kong. Volunteers from all disciplines gather and collaborate on various projects with their passions and skills. Ideas are exchanged and network of expertise formed - We are active on FB group, Slack and different events'
+        },
+        civichacking:{
+          heading:'Civic Hacking',
+          description:'is about collaborating with others to create, build, and invent open source solutions using public-released data, code and technology to solve social, economic, and environmental challenges relevant to their neighborhood, city or Country. We make our lovely Hong Kong a better place.'
+        },
+        opengov:{
+          heading:'Open Government',
+          description:'the most significant impact of the spread of communication technologies will be the way they help reallocate the concentration of power away from states and institutions and transfer it to individuals. - Eric Schmidt. We believe with the help of technologies, the civic sector are empowered and government should work better by the people and for the people.'
+        }
+      }
+
+    }
+};
+
+var Component = React.createClass({
+    mixins: [IntlMixin],
+
+    render: function () {
+        return (
+          <div>
+          <h3 class="ui header"><FormattedMessage message={this.getIntlMessage(this.props.headingKey)}  /></h3>
+          <FormattedMessage message={this.getIntlMessage(this.props.descKey)}  />
+          </div>
+        );
+    }
+});
+
+
+React.render(
+    <Component headingKey="vision.community.heading" descKey="vision.community.description" {...intlDataZh} />,
+    document.getElementById('vision-community')
+);
+React.render(
+    <Component headingKey="vision.civichacking.heading" descKey="vision.civichacking.description" {...intlDataZh} />,
+    document.getElementById('vision-civichacking')
+);
+
+React.render(
+    <Component headingKey="vision.opengov.heading" descKey="vision.opengov.description" {...intlDataZh} />,
+    document.getElementById('vision-opengov')
+);
+
+</script>
 </head>
 <body id="home">
   <!--[if lt IE 8]>
@@ -56,7 +135,7 @@
             <span class="library">
               <span class="code4hk-heder">CODE<strong class="code4hk-4">4</strong>HK</span>
               <div class="code4hk-tagline">
-                {Open Gov . Civic Hacking . Open Source}
+                {Drive social changes by code}
                 <div class="ui circular facebook icon button">
                   <i class="facebook icon"></i>
                 </div>
@@ -107,31 +186,15 @@
 
     <div class="ui grid">
         <div class="four wide column">
-    <img class="community-logo" src="http://www.code4.hk/img/logo.png"></img>
-  </div>
-        <div class="twelve wide column">
-          <h3 class="ui header">Community</h3>
-      Code for Hong Kong is a commmunity aims to promote civic hacking.
-
-      Eric Schidmt
-
-      "Drive social changes by Code", we believe that is one of the few ways that
-      We are decentralized, we gather by the Common Vision and Passion to improve our lovely City.
-      No one can represent the commmunity as a whole while actionism our work reach a rough concensus and improve the society.
-      Read our Manifesto to know more.
+          <img class="community-logo" src="http://www.code4.hk/img/logo.png"></img>
         </div>
+        <div id="vision-community" class="twelve wide column">
       </div>
 
     </div>
-    <div class="ui vertical segment">
-      <h3 class="ui header"></h3>
-      Civic Hacking is about collaborating with others to create, build, and invent open source solutions using publicly-released data, code and technology to solve social, economic, and environmental challenges relevant to their neighborhood, city, state, or country.
-
+    <div id="vision-civichacking" class="ui vertical segment">
     </div>
-    <div class="ui vertical segment">
-      Open goverment
-
-
+    <div id="vision-opengov" class="ui vertical segment">
     </div>
 
   </section>
