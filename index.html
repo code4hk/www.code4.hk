@@ -15,28 +15,43 @@
   <script src="./node_modules/react-intl/dist/react-intl.min.js"></script>
 
 <script type="text/jsx">
+  Object.prototype.resolve = function( path ) {
+    return path.split('.').reduce( function( prev, curr ) {
+      return prev[curr];
+    }, this );
+  }
+
 var IntlMixin        = ReactIntl.IntlMixin;
 var FormattedMessage = ReactIntl.FormattedMessage;
 
-var intlDataZh = {
-    locales : ['zh-TW'],
-    messages: {
-      vision:{
-        community: {
-            heading: '社群',
-            description:'CODE4HK社群旨在聯合各界人仕透過程式設計和科技促進香港社會進步；成員活躍於Facebook Group和Slack。著重每人都可參與及組織，發揮專長協作及推動不同的項目，實踐理念並互相學習。'
-        },
-        civichacking:{
-            heading:'公民開發',
-            description:'指引進軟體工業文化，運用開放數據及開放源碼，發揮民間力量解決身邊社區以至城市面對的問題；推廣香港「公民開發」，從而「用程式改變香港」'
-        },
-        opengov:{
-                    heading:'開放政府',
-                    description:'Eric Schmidt在《數位新時代》中寫道：「在世界舞台，通訊科技帶來最重要的影響是將權力重新從國家和現行體制分配到個人手上。」。科技能發揮參與式民主的極致，市民能用最有效的方法去表達政見、參與決策。我們務求把政府變成「開放軟體」，民間力量一同「除錯」，建構開放更透明的政府。'
-                }
-      }
-
+var data = {
+  "icon" : {
+    "vision" : {
+      "community": "users",
+      "civichacking": "announcement",
+      "opengov": "university"
     }
+  }
+};
+
+var intlDataZh = {
+  locales : ['zh-TW'],
+  messages: {
+    vision:{
+      community: {
+        heading: '社群',
+        description:'CODE4HK社群旨在聯合各界人仕透過程式設計和科技促進香港社會進步；成員活躍於Facebook Group和Slack。著重每人都可參與及組織，發揮專長協作及推動不同的項目，實踐理念並互相學習。'
+      },
+      civichacking:{
+        heading:'公民開發',
+        description:'指引進軟體工業文化，運用開放數據及開放源碼，發揮民間力量解決身邊社區以至城市面對的問題；推廣香港「公民開發」，從而「用程式改變香港」'
+      },
+      opengov:{
+        heading:'開放政府',
+        description:'Eric Schmidt在《數位新時代》中寫道：「在世界舞台，通訊科技帶來最重要的影響是將權力重新從國家和現行體制分配到個人手上。」。科技能發揮參與式民主的極致，市民能用最有效的方法去表達政見、參與決策。我們務求把政府變成「開放軟體」，民間力量一同「除錯」，建構開放更透明的政府。'
+      }
+    }
+  }
 };
 
 var intlData = {
@@ -56,7 +71,6 @@ var intlData = {
           description:'the most significant impact of the spread of communication technologies will be the way they help reallocate the concentration of power away from states and institutions and transfer it to individuals. - Eric Schmidt. We believe with the help of technologies, the civic sector are empowered and government should work better by the people and for the people.'
         }
       }
-
     }
 };
 
@@ -64,10 +78,12 @@ var Component = React.createClass({
     mixins: [IntlMixin],
 
     render: function () {
+       console.log(this.props.icon.resolve(this.props.keyword));
         return (
           <div>
-          <h3 class="ui header"><FormattedMessage message={this.getIntlMessage(this.props.headingKey)}  /></h3>
-          <FormattedMessage message={this.getIntlMessage(this.props.descKey)}  />
+            <div className="icon-container"><i className={"icon " + this.props.icon.resolve(this.props.keyword)}></i></div>
+            <h3 className="ui header"><FormattedMessage message={this.getIntlMessage(this.props.keyword + ".heading")}  /></h3>
+            <FormattedMessage message={this.getIntlMessage(this.props.keyword + ".description")}  />
           </div>
         );
     }
@@ -75,16 +91,17 @@ var Component = React.createClass({
 
 
 React.render(
-    <Component headingKey="vision.community.heading" descKey="vision.community.description" {...intlDataZh} />,
+    <Component keyword="vision.community" {...intlDataZh} {...data} />,
     document.getElementById('vision-community')
 );
+
 React.render(
-    <Component headingKey="vision.civichacking.heading" descKey="vision.civichacking.description" {...intlDataZh} />,
+    <Component keyword="vision.civichacking" {...intlDataZh} {...data} />,
     document.getElementById('vision-civichacking')
 );
 
 React.render(
-    <Component headingKey="vision.opengov.heading" descKey="vision.opengov.description" {...intlDataZh} />,
+    <Component keyword="vision.opengov" {...intlDataZh} {...data} />,
     document.getElementById('vision-opengov')
 );
 
