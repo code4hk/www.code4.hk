@@ -1,3 +1,6 @@
+/**
+ Color palatte chosen: http://paletton.com/palette.php?uid=3000W0kiarSaZLgeHyIllmpoAg5
+*/
 #home .welcome {
   background-image: url('/images/background.jpg');
   background-size: cover;
@@ -6,7 +9,7 @@
 }
 
 .dashboard {
- color: #eeeeee;
+  color: #eeeeee;
 }
 
 .dashboard .metric {
@@ -29,30 +32,48 @@
   background-color:#9013fe;
 }
 
-
 .header-logo {
   max-width:5rem;
 }
 
-.propaganda {
-    max-width: 960px;
-    margin:0 auto;
+#home>.propaganda {
+  max-width: 960px;
+  margin:0 auto;
+}
+
+.propaganda .icon-container {
+  font-size: 3.998rem;
+  text-align: center;
+}
+
+.propaganda .ui.header {
+  text-align: center;
+}
+
+#vision-community .icon {
+  color : #de6061;
+}
+#vision-civichacking .icon {
+  color : #B0B23B;
+}
+#vision-opengov .icon {
+  color : #496194;
 }
 
 .code4hk-header {
-    width:310px;
+  width:310px;
 }
 
 .code4hk-tagline {
-    color: #fefefe;
-    letter-spacing : 1.4px;
+  color: #fefefe;
+  letter-spacing : 1.4px;
 }
 
 #home .stripe {
- background-color: #d8d8d8;
- padding: 10em 0px;
- border-radius: 0em;
- margin: 0em;
- -webkit-transform: translate3d(0, 0, 0);
- transform: translate3d(0, 0, 0);
+  background-color: #d8d8d8;
+  padding: 10em 0px;
+  border-radius: 0em;
+  margin: 0em;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
