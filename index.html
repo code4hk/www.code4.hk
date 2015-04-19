@@ -55,55 +55,139 @@ var intlDataZh = {
 };
 
 var intlData = {
-    locales : ['en-US'],
-    messages: {
-      vision:{
-        community: {
-            heading: 'Community',
-            description:'We are a Civic Hacking Community. "Drive social changes by Code", we believe IT innovation is one of the few ways that can change Hong Kong. Volunteers from all disciplines gather and collaborate on various projects with their passions and skills. Ideas are exchanged and network of expertise formed - We are active on FB group, Slack and different events'
-        },
-        civichacking:{
-          heading:'Civic Hacking',
-          description:'is about collaborating with others to create, build, and invent open source solutions using public-released data, code and technology to solve social, economic, and environmental challenges relevant to their neighborhood, city or Country. We make our lovely Hong Kong a better place.'
-        },
-        opengov:{
-          heading:'Open Government',
-          description:'the most significant impact of the spread of communication technologies will be the way they help reallocate the concentration of power away from states and institutions and transfer it to individuals. - Eric Schmidt. We believe with the help of technologies, the civic sector are empowered and government should work better by the people and for the people.'
-        }
+  locales : ['en-US'],
+  messages: {
+    vision:{
+      community: {
+          heading: 'Community',
+          description:'We are a Civic Hacking Community. "Drive social changes by Code", we believe IT innovation is one of the few ways that can change Hong Kong. Volunteers from all disciplines gather and collaborate on various projects with their passions and skills. Ideas are exchanged and network of expertise formed - We are active on FB group, Slack and different events'
+      },
+      civichacking:{
+        heading:'Civic Hacking',
+        description:'is about collaborating with others to create, build, and invent open source solutions using public-released data, code and technology to solve social, economic, and environmental challenges relevant to their neighborhood, city or Country. We make our lovely Hong Kong a better place.'
+      },
+      opengov:{
+        heading:'Open Government',
+        description:'the most significant impact of the spread of communication technologies will be the way they help reallocate the concentration of power away from states and institutions and transfer it to individuals. - Eric Schmidt. We believe with the help of technologies, the civic sector are empowered and government should work better by the people and for the people.'
+      }
+    },
+    manifesto : {
+      header : 'Manifesto',
+      one: {
+        main : "Today we drive social change by code.",
+        description : "We, the citizen of Hong Kong, must harness the power of technology and bring social good through technology. Technology is always the force to drive social change and we make sure that the citizen of Hong Kong is able to master and drive social change by themselves."
+      },
+      two: {
+        main : "Code is Action. Innovation. Empowerment. Solving problems.",
+        description : "Speak without action is worthless. Blueprint without prototype is powerless. Thinking without doing is meaningless. We act on aspects we truly passionate on and apply the latest technology to solve the problems."
+      },
+      three: {
+        main : "We form teams to do so.",
+        description : "Team is essential to achieving greater social impact, one must pursue others to join our cause. Teams are all equal and curator team is NOT more equals. We also join hands with other communities and social entities, strive to improve the Hong Kong society as a whole."
+      },
+      four: {
+        main : "Open and respect define us.",
+        description : "All of us is embracing the lifestyle of free software. Respect each other and expect everyone to reason each other based on logic and common sense. We reuse and contribute back to the open source community worldwide."
       }
     }
+  }
 };
 
-var Component = React.createClass({
-    mixins: [IntlMixin],
+var Propaganda = React.createClass({
+  mixins: [IntlMixin],
 
-    render: function () {
-       console.log(this.props.icon.resolve(this.props.keyword));
-        return (
-          <div>
-            <div className="icon-container"><i className={"icon " + this.props.icon.resolve(this.props.keyword)}></i></div>
-            <h3 className="ui header"><FormattedMessage message={this.getIntlMessage(this.props.keyword + ".heading")}  /></h3>
-            <FormattedMessage message={this.getIntlMessage(this.props.keyword + ".description")}  />
-          </div>
-        );
+  render: function () {
+    return (
+      <div>
+        <div className="icon-container"><i className={"icon " + this.props.icon.resolve(this.props.keyword)}></i></div>
+        <h3 className="ui header"><FormattedMessage message={this.getIntlMessage(this.props.keyword + ".heading")}  /></h3>
+        <FormattedMessage message={this.getIntlMessage(this.props.keyword + ".description")}  />
+      </div>
+    );
+  }
+});
+
+var Manifesto = React.createClass({
+
+  mixins: [IntlMixin],
+
+  render: function () {
+    var self = this;
+    var getManifestoMessage = function(key) {
+      return self.getIntlMessage("manifesto." + key);
     }
+    return (
+      <div>
+        <h3><FormattedMessage message={getManifestoMessage("header")}></FormattedMessage></h3>
+        <ol>
+          <li>
+            <p>
+              <FormattedMessage message={getManifestoMessage("one.main")}></FormattedMessage>
+            </p>
+            <ul>
+              <li>
+                <FormattedMessage message={getManifestoMessage("one.description")}></FormattedMessage>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <FormattedMessage message={getManifestoMessage("two.main")}></FormattedMessage>
+            </p>
+            <ul>
+              <li>
+                <FormattedMessage message={getManifestoMessage("two.description")}></FormattedMessage>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <FormattedMessage message={getManifestoMessage("three.main")}></FormattedMessage>
+            </p>
+            <ul>
+              <li>
+                <FormattedMessage message={getManifestoMessage("three.description")}></FormattedMessage>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <FormattedMessage message={getManifestoMessage("four.main")}></FormattedMessage>
+            </p>
+            <ul>
+              <li>
+                <FormattedMessage message={getManifestoMessage("four.description")}></FormattedMessage>
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    );
+  }
 });
 
 
 React.render(
-    <Component keyword="vision.community" {...intlDataZh} {...data} />,
-    document.getElementById('vision-community')
+  <Propaganda keyword="vision.community" {...intlDataZh} {...data} />,
+  document.getElementById('vision-community')
 );
 
 React.render(
-    <Component keyword="vision.civichacking" {...intlDataZh} {...data} />,
-    document.getElementById('vision-civichacking')
+  <Propaganda keyword="vision.civichacking" {...intlDataZh} {...data} />,
+  document.getElementById('vision-civichacking')
 );
 
 React.render(
-    <Component keyword="vision.opengov" {...intlDataZh} {...data} />,
-    document.getElementById('vision-opengov')
+  <Propaganda keyword="vision.opengov" {...intlDataZh} {...data} />,
+  document.getElementById('vision-opengov')
 );
+
+React.render(
+  <Manifesto {...intlData} />,
+  document.getElementById('manifesto')
+);
+
+
 
 </script>
 </head>
@@ -129,12 +213,12 @@ React.render(
       <div id="vision-opengov" class="column"></div>
     </div>
   </section>
-  <section class="ui segment"></section>
-  <!-- <div class="ui section divider"></div> -->
-
-  <section class="ui stripe page vertical segment">
-
+  <section class="ui segment manifesto">
+    <div class="ui one column grid">
+      <div id="manifesto" class="column"></div>
+    </div>
   </section>
+  <section class="ui segment curators"></section>
 
   <script src="build/build.js"></script>
   <script src="js/main.js"></script>
