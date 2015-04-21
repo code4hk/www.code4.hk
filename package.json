@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "browserify": "^9.0.3",
+    "intl": "*",
     "literalify": "^0.4.0",
     "react": "^0.13.1",
-    "intl": "*",
     "react-intl": "*"
   }
 }

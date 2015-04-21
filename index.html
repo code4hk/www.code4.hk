@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="build/build.css">
 
-  <script src="./node_modules/react/dist/react.min.js"></script>
+  <script src="./node_modules/react/dist/react.js"></script>
   <script src="./node_modules/react/dist/JSXTransformer.js"></script>
   <script src="./node_modules/react-intl/dist/react-intl.min.js"></script>
 
@@ -38,6 +38,7 @@ var intlDataZh = {
   locales : ['zh-TW'],
   messages: {
     vision:{
+      header : "Visions",
       community: {
         heading: '社群',
         description:'CODE4HK社群旨在聯合各界人仕透過程式設計和科技促進香港社會進步；成員活躍於Facebook Group和Slack。著重每人都可參與及組織，發揮專長協作及推動不同的項目，實踐理念並互相學習。'
@@ -58,6 +59,7 @@ var intlData = {
   locales : ['en-US'],
   messages: {
     vision:{
+      header : "Visions",
       community: {
           heading: 'Community',
           description:'We are a Civic Hacking Community. "Drive social changes by Code", we believe IT innovation is one of the few ways that can change Hong Kong. Volunteers from all disciplines gather and collaborate on various projects with their passions and skills. Ideas are exchanged and network of expertise formed - We are active on FB group, Slack and different events'
@@ -89,18 +91,21 @@ var intlData = {
         main : "Open and respect define us.",
         description : "All of us is embracing the lifestyle of free software. Respect each other and expect everyone to reason each other based on logic and common sense. We reuse and contribute back to the open source community worldwide."
       }
+    },
+    curators : {
+      header : "Curators"
     }
   }
 };
 
-var Propaganda = React.createClass({
+var Pillar = React.createClass({
   mixins: [IntlMixin],
 
   render: function () {
     return (
       <div>
         <div className="icon-container"><i className={"icon " + this.props.icon.resolve(this.props.keyword)}></i></div>
-        <h3 className="ui header"><FormattedMessage message={this.getIntlMessage(this.props.keyword + ".heading")}  /></h3>
+        <h3 className="ui sub-header"><FormattedMessage message={this.getIntlMessage(this.props.keyword + ".heading")}  /></h3>
         <FormattedMessage message={this.getIntlMessage(this.props.keyword + ".description")}  />
       </div>
     );
@@ -118,7 +123,9 @@ var Manifesto = React.createClass({
     }
     return (
       <div>
-        <h3><FormattedMessage message={getManifestoMessage("header")}></FormattedMessage></h3>
+        <div id="manifesto-header" className="header">
+          <span className="content"><FormattedMessage message={getManifestoMessage("header")}/></span>
+        </div>
         <ol>
           <li>
             <p>
@@ -167,18 +174,19 @@ var Manifesto = React.createClass({
 });
 
 
+
 React.render(
-  <Propaganda keyword="vision.community" {...intlDataZh} {...data} />,
+  <Pillar keyword="vision.community" {...intlDataZh} {...data} />,
   document.getElementById('vision-community')
 );
 
 React.render(
-  <Propaganda keyword="vision.civichacking" {...intlDataZh} {...data} />,
+  <Pillar keyword="vision.civichacking" {...intlDataZh} {...data} />,
   document.getElementById('vision-civichacking')
 );
 
 React.render(
-  <Propaganda keyword="vision.opengov" {...intlDataZh} {...data} />,
+  <Pillar keyword="vision.opengov" {...intlDataZh} {...data} />,
   document.getElementById('vision-opengov')
 );
 
@@ -187,7 +195,29 @@ React.render(
   document.getElementById('manifesto')
 );
 
+var Header = React.createClass({
+      mixins: [IntlMixin],
+      render : function() {
+        return (
+          <span className="content">
+            <FormattedMessage message={this.getIntlMessage(this.props.keyword + ".header")}/>
+          </span>
+        );
+      }
+    });
 
+React.render(
+  <Header keyword="curators" {...intlData}/>,
+  document.getElementById('curators-header')
+);
+
+React.render(
+  <Header keyword="vision" {...intlData}/>,
+  document.getElementById('vision-header')
+);
+</script>
+
+<script type="application/javascript">
 
 </script>
 </head>
@@ -207,10 +237,49 @@ React.render(
     </div>
   </section>
   <section class="ui segment propaganda">
+    <div class="ui one column grid">
+      <div id="vision-header" class="column header">
+      </div>
+    </div>
     <div class="ui three column grid">
       <div id="vision-community" class="column"></div>
       <div id="vision-civichacking" class="column"></div>
       <div id="vision-opengov" class="column"></div>
+    </div>
+  </section>
+  <section class="ui segment curators">
+    <div class="ui one column grid">
+      <div id="curators-header" class="column header">
+      </div>
+    </div>
+    <div class="ui five column grid">
+      <div class="column">
+        <img class="ui medium circular image profile-pic" src="https://pbs.twimg.com/profile_images/476063463022673920/6AIWeMcJ_400x400.jpeg" alt=""/>
+        <div class="name">Tim Chan</div>
+        <div class="bio">Entrepreneur; Politics Graduate; Ex-banker; TEDxHKBU co-founder; Aspire to learn coding but turns out doing design; </div>
+      </div>
+      <div class="column">
+        <img class="ui medium circular image profile-pic" src="https://pbs.twimg.com/profile_images/585503194538766341/kxkcwput_400x400.jpg" alt=""/>
+
+        <div class="name">Pili Hu</div>
+        <div class="bio">A fan of open source; An entrepreneur; A researcher. Coding is not only for profit but also for fun and social impact.</div>
+      </div>
+      <div class="column"><img class="ui medium circular image profile-pic" src="https://pbs.twimg.com/profile_images/3615546174/0fb11d27edef354e9c6712858b1db94e_400x400.png" alt=""/>
+
+        <div class="name">Lau Chun Yin Vincent</div>
+        <div class="bio">Learn coding to make something meaningful and solve problems around myself. Inspired by Code for America so started Code for Hong Kong. Language Hacker at a local start-up.</div>
+      </div>
+      <div class="column"><img class="ui medium circular image profile-pic" src="https://pbs.twimg.com/profile_images/589824460040974336/I8SC9iN9_400x400.jpg" alt=""/>
+
+        <div class="name">Wat Chun Pang Gilbert</div>
+        <div class="bio">is working everyday to build a better world by developing software products. Co-founded CODE4HK to gather comrades</div>
+      </div>
+      <div class="column"><img class="ui medium circular image profile-pic" src="https://pbs.twimg.com/profile_images/522696228052537344/pYbhMM68_400x400.jpeg" alt=""/>
+
+        <div class="name">Yiu Pak Hin</div>
+        <div class="bio">Believes coding is a tool making social impacts if you want. Just started exploring the real-world coding fun/horror at a local start-up.</div>
+      </div>
+      
     </div>
   </section>
   <section class="ui segment manifesto">
@@ -218,12 +287,9 @@ React.render(
       <div id="manifesto" class="column"></div>
     </div>
   </section>
-  <section class="ui segment curators"></section>
-
+  <footer> &copy; 2015 CODE4HK</footer>
   <script src="build/build.js"></script>
   <script src="js/main.js"></script>
-
-
 
 </body>
 </html>

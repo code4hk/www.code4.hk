@@ -11779,7 +11779,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.segment {
   position: relative;
-  background-color: #ffffff;
+  background-color: #f9f9f9;
   margin: 1rem 0em;
   padding: 1em 1em;
   border-radius: 2px;
