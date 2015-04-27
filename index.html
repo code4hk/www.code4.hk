@@ -31,25 +31,91 @@ var data = {
       "civichacking": "announcement",
       "opengov": "university"
     }
+  },
+  curators : {
+    tim : {
+      profilePic : "https://pbs.twimg.com/profile_images/476063463022673920/6AIWeMcJ_400x400.jpeg",
+      link : ""
+    },
+    pili : {
+      profilePic : "https://pbs.twimg.com/profile_images/585503194538766341/kxkcwput_400x400.jpg",
+      link : ""
+    },
+    vincent : {
+      profilePic : "https://pbs.twimg.com/profile_images/3615546174/0fb11d27edef354e9c6712858b1db94e_400x400.png",
+      link : ""
+    },
+    gilbert : {
+      profilePic : "https://pbs.twimg.com/profile_images/589824460040974336/I8SC9iN9_400x400.jpg",
+      link : ""
+    },
+    ken : {
+      profilePic : "https://pbs.twimg.com/profile_images/522696228052537344/pYbhMM68_400x400.jpeg",
+      link : ""
+    }
   }
 };
 
 var intlDataZh = {
   locales : ['zh-TW'],
   messages: {
-    vision:{
-      header : "Visions",
-      community: {
-        heading: '社群',
-        description:'CODE4HK社群旨在聯合各界人仕透過程式設計和科技促進香港社會進步；成員活躍於Facebook Group和Slack。著重每人都可參與及組織，發揮專長協作及推動不同的項目，實踐理念並互相學習。'
+    vision   : {
+      header      : "初衷",
+      community   : {
+        heading    : '社群',
+        description: 'CODE4HK社群旨在聯合各界人仕透過程式設計和科技促進香港社會進步；成員活躍於Facebook Group和Slack。著重每人都可參與及組織，發揮專長協作及推動不同的項目，實踐理念並互相學習。'
       },
-      civichacking:{
-        heading:'公民開發',
-        description:'指引進軟體工業文化，運用開放數據及開放源碼，發揮民間力量解決身邊社區以至城市面對的問題；推廣香港「公民開發」，從而「用程式改變香港」'
+      civichacking: {
+        heading    : '公民開發',
+        description: '指引進軟體工業文化，運用開放數據及開放源碼，發揮民間力量解決身邊社區以至城市面對的問題；推廣香港「公民開發」，從而「用程式改變香港」'
       },
-      opengov:{
-        heading:'開放政府',
-        description:'Eric Schmidt在《數位新時代》中寫道：「在世界舞台，通訊科技帶來最重要的影響是將權力重新從國家和現行體制分配到個人手上。」。科技能發揮參與式民主的極致，市民能用最有效的方法去表達政見、參與決策。我們務求把政府變成「開放軟體」，民間力量一同「除錯」，建構開放更透明的政府。'
+      opengov     : {
+        heading    : '開放政府',
+        description: 'Eric Schmidt在《數位新時代》中寫道：「在世界舞台，通訊科技帶來最重要的影響是將權力重新從國家和現行體制分配到個人手上。」。科技能發揮參與式民主的極致，市民能用最有效的方法去表達政見、參與決策。我們務求把政府變成「開放軟體」，民間力量一同「除錯」，建構開放更透明的政府。'
+      }
+    },
+    manifesto: {
+      header: '宣言',
+      one   : {
+        main       : "今天，我們攜手用程式改變社會。",
+        description: "我們公民要利用科技為社會帶來進步。科技一直是社會進步的動力，而我們立志令香港公民有能力自行利用科技，改進社會。"
+      },
+      two   : {
+        main       : "程式是行動；是創新；是充權；是解決問題。",
+        description: "「君子耻其言而過其行。」我們在各人熱心的領域上，利用科技實際解決問題。"
+      },
+      three : {
+        main       : "我們結隊前行。",
+        description: "「比：吉。原筮，元永貞，無咎。不寧方來，後夫凶。」結隊前行，方能任重道遠。所有團隊皆平等，彼此互通有冇。我們也襄助各界，一同改善香港社會。"
+      },
+      four  : {
+        main       : "開放、尊重",
+        description: "我們抱着自由軟體的生活態度，尊重彼此。用邏輯和常識討論事物。理所當然地，我們必須回饋世界開源社群。"
+      }
+    },
+    curators : {
+      header    : "社群打雜",
+      personnels: {
+        tim    : {
+          name: '陳景道',
+          bio : "共同創辦人 @ HelloReporter.io & SnapViva & TEDxHKBU、前銀行家、兼社企諮詢、同建Code4HK的非程序員 #CMX #CoderDojoHK #GrowthHacking"
+        },
+        pili   : {
+          name: '胡辟礫',
+          bio : "開源愛好者、創業者、學者。為有趣的事情與社會影響而編碼。"
+        },
+        vincent: {
+          name: '劉俊彥',
+          bio : "自小學程式就為了解決身邊問題。認為香港忽視IT力量，又受Code for America 啟發，便發起CODE4HK。日常在Start-Up做「Language Hacker」。"
+        },
+        gilbert: {
+          name: '屈振鵬',
+          bio : "留德一年，立志用軟件科技改善人類生活，同建CODE4HK聚集同路人。"
+        },
+        ken    : {
+          name: '姚柏軒',
+          bio : "相信寫程式也可以改變社會的工程師。"
+        }
       }
     }
   }
@@ -77,11 +143,11 @@ var intlData = {
       header : 'Manifesto',
       one: {
         main : "Today we drive social change by code.",
-        description : "We, the citizen of Hong Kong, must harness the power of technology and bring social good through technology. Technology is always the force to drive social change and we make sure that the citizen of Hong Kong is able to master and drive social change by themselves."
+        description : "We, the citizen of Hong Kong, must harness the power of technology and bring social good through technology. Technology is always the force to drive social change and we make sure that the citizen of Hong Kong is able to master it and drive social change by themselves."
       },
       two: {
         main : "Code is Action. Innovation. Empowerment. Solving problems.",
-        description : "Speak without action is worthless. Blueprint without prototype is powerless. Thinking without doing is meaningless. We act on aspects we truly passionate on and apply the latest technology to solve the problems."
+        description : "Speak without action is worthless. Blueprint without prototype is powerless. Thinking without doing is meaningless. We act on aspects we are truly passionate and apply the latest technology to solve the problems."
       },
       three: {
         main : "We form teams to do so.",
@@ -93,7 +159,29 @@ var intlData = {
       }
     },
     curators : {
-      header : "Curators"
+      header : "Curators",
+      personnels : {
+        tim: {
+          name: 'Tim Chan',
+          bio : "Co-Founder @ HelloReporter.io & SnapViva & TEDxHKBU; SE consultant ; Ex-banker; Non-coder to start Code4HK #CMX #CoderDojoHK #GrowthHacking"
+        },
+        pili: {
+          name: 'Pili Hu',
+          bio : "A fan of open source; An entrepreneur; A researcher. Coding is not only for profit but also for fun and social impact."
+        },
+        vincent: {
+          name: 'Lau Chun Yin Vincent',
+          bio : "Learn coding to make something meaningful and solve problems around myself. Inspired by Code for America so started Code for Hong Kong. Language Hacker at a local start-up."
+        },
+        gilbert: {
+          name: 'Wat Chun Pang Gilbert',
+          bio : "is working everyday to build a better world by developing software products. Co-founded CODE4HK to find company."
+        },
+        ken: {
+          name: 'Yiu Pak Hin',
+          bio : "Believes coding is a tool making social impacts if you want. Just started exploring the real-world coding fun/horror at a local start-up."
+        }
+      }
     }
   }
 };
@@ -112,6 +200,21 @@ var Pillar = React.createClass({
   }
 });
 
+React.render(
+  <Pillar keyword="vision.community" {...intlDataZh} {...data} />,
+  document.getElementById('vision-community')
+);
+
+React.render(
+  <Pillar keyword="vision.civichacking" {...intlDataZh} {...data} />,
+  document.getElementById('vision-civichacking')
+);
+
+React.render(
+  <Pillar keyword="vision.opengov" {...intlDataZh} {...data} />,
+  document.getElementById('vision-opengov')
+);
+
 var Manifesto = React.createClass({
 
   mixins: [IntlMixin],
@@ -120,7 +223,7 @@ var Manifesto = React.createClass({
     var self = this;
     var getManifestoMessage = function(key) {
       return self.getIntlMessage("manifesto." + key);
-    }
+    };
     return (
       <div>
         <div id="manifesto-header" className="header">
@@ -173,26 +276,47 @@ var Manifesto = React.createClass({
   }
 });
 
-
-
 React.render(
-  <Pillar keyword="vision.community" {...intlDataZh} {...data} />,
-  document.getElementById('vision-community')
-);
-
-React.render(
-  <Pillar keyword="vision.civichacking" {...intlDataZh} {...data} />,
-  document.getElementById('vision-civichacking')
-);
-
-React.render(
-  <Pillar keyword="vision.opengov" {...intlDataZh} {...data} />,
-  document.getElementById('vision-opengov')
-);
-
-React.render(
-  <Manifesto {...intlData} />,
+  <Manifesto {...intlDataZh} />,
   document.getElementById('manifesto')
+);
+
+var Curator = React.createClass({
+  mixins: [IntlMixin],
+  render: function () {
+    var self = this;
+    var getProfileMessage = function (key) {
+      return self.getIntlMessage("curators.personnels." + key);
+    };
+    return (
+      <div>
+        <img className="ui medium circular image profile-pic" src={this.props.curators.resolve(this.props.name + '.profilePic')} alt=""/>
+        <div className="name">{getProfileMessage(this.props.name + ".name")}</div>
+        <div className="bio">{getProfileMessage(this.props.name + ".bio")}</div>
+      </div>
+    );
+  }
+});
+
+React.render(
+  <Curator name="tim" {...intlDataZh} {...data}/>,
+  document.getElementById('tim')
+);
+React.render(
+  <Curator name="pili" {...intlDataZh} {...data}/>,
+  document.getElementById('pili')
+);
+React.render(
+  <Curator name="vincent" {...intlDataZh} {...data}/>,
+  document.getElementById('vincent')
+);
+React.render(
+  <Curator name="gilbert" {...intlDataZh} {...data}/>,
+  document.getElementById('gilbert')
+);
+React.render(
+  <Curator name="ken" {...intlDataZh} {...data}/>,
+  document.getElementById('ken')
 );
 
 var Header = React.createClass({
@@ -207,12 +331,12 @@ var Header = React.createClass({
     });
 
 React.render(
-  <Header keyword="curators" {...intlData}/>,
+  <Header keyword="curators" {...intlDataZh}/>,
   document.getElementById('curators-header')
 );
 
 React.render(
-  <Header keyword="vision" {...intlData}/>,
+  <Header keyword="vision" {...intlDataZh}/>,
   document.getElementById('vision-header')
 );
 </script>
@@ -253,33 +377,12 @@ React.render(
       </div>
     </div>
     <div class="ui five column grid">
-      <div class="column">
-        <img class="ui medium circular image profile-pic" src="https://pbs.twimg.com/profile_images/476063463022673920/6AIWeMcJ_400x400.jpeg" alt=""/>
-        <div class="name">Tim Chan</div>
-        <div class="bio">Entrepreneur; Politics Graduate; Ex-banker; TEDxHKBU co-founder; Aspire to learn coding but turns out doing design; </div>
-      </div>
-      <div class="column">
-        <img class="ui medium circular image profile-pic" src="https://pbs.twimg.com/profile_images/585503194538766341/kxkcwput_400x400.jpg" alt=""/>
+      <div id="tim" class="column"></div>
+      <div id="pili" class="column"></div>
+      <div id="vincent" class="column"></div>
+      <div id="gilbert" class="column"></div>
+      <div id="ken" class="column"></div>
 
-        <div class="name">Pili Hu</div>
-        <div class="bio">A fan of open source; An entrepreneur; A researcher. Coding is not only for profit but also for fun and social impact.</div>
-      </div>
-      <div class="column"><img class="ui medium circular image profile-pic" src="https://pbs.twimg.com/profile_images/3615546174/0fb11d27edef354e9c6712858b1db94e_400x400.png" alt=""/>
-
-        <div class="name">Lau Chun Yin Vincent</div>
-        <div class="bio">Learn coding to make something meaningful and solve problems around myself. Inspired by Code for America so started Code for Hong Kong. Language Hacker at a local start-up.</div>
-      </div>
-      <div class="column"><img class="ui medium circular image profile-pic" src="https://pbs.twimg.com/profile_images/589824460040974336/I8SC9iN9_400x400.jpg" alt=""/>
-
-        <div class="name">Wat Chun Pang Gilbert</div>
-        <div class="bio">is working everyday to build a better world by developing software products. Co-founded CODE4HK to gather comrades</div>
-      </div>
-      <div class="column"><img class="ui medium circular image profile-pic" src="https://pbs.twimg.com/profile_images/522696228052537344/pYbhMM68_400x400.jpeg" alt=""/>
-
-        <div class="name">Yiu Pak Hin</div>
-        <div class="bio">Believes coding is a tool making social impacts if you want. Just started exploring the real-world coding fun/horror at a local start-up.</div>
-      </div>
-      
     </div>
   </section>
   <section class="ui segment manifesto">
