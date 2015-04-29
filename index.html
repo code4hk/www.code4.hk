@@ -117,7 +117,11 @@ var intlDataZh = {
           bio : "相信寫程式也可以改變社會的工程師。"
         }
       }
-    }
+    },
+    joinUs : {
+      header : '加入我們'
+    },
+    tagline : '用程式改革社會'
   }
 };
 
@@ -182,7 +186,11 @@ var intlData = {
           bio : "Believes coding is a tool making social impacts if you want. Just started exploring the real-world coding fun/horror at a local start-up."
         }
       }
-    }
+    },
+    joinUs : {
+      header : 'Join Us'
+    },
+    tagline : 'Drive social change by code'
   }
 };
 
@@ -339,6 +347,25 @@ React.render(
   <Header keyword="vision" {...intlDataZh}/>,
   document.getElementById('vision-header')
 );
+
+React.render(
+  <Header keyword="joinUs" {...intlDataZh}/>,
+  document.getElementById('join-us')
+);
+
+var Tagline = React.createClass({
+  mixins: [IntlMixin],
+  render : function() {
+    return (
+        <i>{'{'} <FormattedMessage message={this.getIntlMessage("tagline")}/> {'}'}</i>
+    );
+  }
+});
+
+React.render(
+  <Tagline {...intlDataZh}/>,
+  document.getElementById('tagline')
+);
 </script>
 
 <script type="application/javascript">
@@ -354,9 +381,7 @@ React.render(
       <div class="column">
         <span class="library">
           <img src="images/logo-white.png" alt="code4hk logo" class="ui header code4hk-header"/>
-          <div class="code4hk-tagline">
-            <i>{ Drive social change by code }</i>
-          </div>
+          <div id="tagline" class="code4hk-tagline"></div>
         </span>
     </div>
   </section>
@@ -390,6 +415,11 @@ React.render(
       <div id="manifesto" class="column"></div>
     </div>
   </section>
+  <section class="ui segment joinUs">
+  <div class="ui one column grid">
+    <a href="https://www.facebook.com/groups/code4hk/">
+    <div id="join-us" class="column header"></div></a>
+  </div>
   <footer> &copy; 2015 CODE4HK</footer>
   <script src="build/build.js"></script>
   <script src="js/main.js"></script>

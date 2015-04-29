@@ -21,17 +21,9 @@
 #home .header {
   margin-top:40px;
   text-align: center;
-  font-size: 1.777rem;
-  font-weight: 700;
+  font-size: 2.369rem;
+  font-weight: 900;
   letter-spacing: 1.33px;
-  font-style: italic;
-}
-
-#home .header .content::before {
-  content : "{ ";
-}
-#home .header .content::after {
-  content : " }";
 }
 
 .header-logo {
@@ -89,13 +81,11 @@ section {
   margin: 0 auto;
 }
 
-.manifesto .header {
-  font-style: italic;
-  letter-spacing: 1px;
-}
-
 .manifesto ul {
-  margin-bottom: 40px;
+  margin-bottom: 1.5rem;
+}
+.manifesto p {
+  margin-bottom:0px;
 }
 
 #home .curators {
@@ -120,5 +110,6 @@ footer {
   font-style: italic;
   color: #999999;
   letter-spacing: 2px;
+  margin-top: 40px;
   padding: 25px;
 }
